@@ -1,0 +1,63 @@
+https://pyowm.readthedocs.io/en/latest/usage-examples-v2/weather-api-usage-examples.html#owm-weather-api-version-2-5-usage-examples
+
+
+
+Get data about observation object
+>>> obs.get_reception_time()                           # UNIX GMT time
+1379091600L
+>>> obs.get_reception_time(timeformat='iso')           # ISO8601
+'2013-09-13 17:00:00+00'
+>>> obs.get_reception_time(timeformat='date')          # datetime.datetime instance
+datetime.datetime(2013, 09, 13, 17, 0, 0, 0)
+
+
+Weather data
+>>> w = obs.get_weather()
+>>> w.get_reference_time()                             # get time of observation in GMT UNIXtime
+1377872206L
+>>> w.get_reference_time(timeformat='iso')             # ...or in ISO8601
+'2013-08-30 14:16:46+00'
+>>> w.get_reference_time(timeformat='date')            # ...or as a datetime.datetime object
+datetime.datetime(2013, 08, 30, 14, 16, 46, 0)
+
+>>> w.get_clouds()                                     # Get cloud coverage
+65
+
+>>> w.get_rain()                                       # Get rain volume
+{'3h': 0}
+
+>>> w.get_snow()                                       # Get snow volume
+{}
+
+>>> w.get_wind()                                       # Get wind degree and speed
+{'deg': 59, 'speed': 2.660}
+
+>>> w.get_humidity()                                   # Get humidity percentage
+67
+
+>>> w.get_pressure()                                   # Get atmospheric pressure
+{'press': 1009, 'sea_level': 1038.381}
+
+>>> w.get_temperature()                                # Get temperature in Kelvin
+{'temp': 293.4, 'temp_kf': None, 'temp_max': 297.5, 'temp_min': 290.9}
+>>> w.get_temperature(unit='celsius')                  # ... or in Celsius degs
+>>> w.get_temperature('fahrenheit')                    # ... or in Fahrenheit degs
+
+>>> w.get_status()                                     # Get weather short status
+'clouds'
+>>> w.get_detailed_status()                           # Get detailed weather status
+'Broken clouds'
+
+>>> w.get_weather_code()                               # Get OWM weather condition code
+803
+
+>>> w.get_weather_icon_name()                          # Get weather-related icon name
+'02d'
+
+>>> w.get_weather_icon_url()                          # Get weather-related icon URL
+'http://openweathermap.org/img/w/02d.png'
+
+>>> w.get_sunrise_time()                               # Sunrise time (GMT UNIXtime or ISO 8601)
+1377862896L
+>>> w.get_sunset_time('iso')                           # Sunset time (GMT UNIXtime or ISO 8601)
+'2013-08-30 20:07:57+00'
