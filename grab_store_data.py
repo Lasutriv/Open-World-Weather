@@ -25,7 +25,7 @@ def work_weather():
     # Rolla City Weather ID's
     # 4406282, 5061159
     # reg.ids_for(matching='like'), reg.locations_for, reg.geopoints_for
-    owm = pyowm.OWM('d1ad022124fbea23822145211a8085a7')
+    owm = pyowm.OWM('key_here')
     observation = owm.weather_at_zip_code('65401', 'US')
     weather = observation.get_weather()
 
